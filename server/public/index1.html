@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plus Plus</title>
+</head>
+<body>
+    <br>
+    <main>
+        <button id="age" class="button" data-button="age">Age</button>
+        <button id="fake-face" class="button" data-button="fake-face">Fake Face</button>
+        <button id="face" class="button" data-button="face">Face</button>
+        <button id="gender" class="button" data-button="gender">Gender</button>
+    </main>
+    <div data-button="age" class="block">
+        <br>
+        <h1 class="text-red">Age Detection</h1>
+        <br>
+        <form action="" class="flex justify-center items-center" method="POST">
+            <label for="image_url">Image Link: </label>
+            <input type="url" name="image_url" id="image_url" />
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <div data-button="face" class="none">
+        <br>
+        <h1 class="text-red">Face Detection</h1>
+        <br>
+        <form action="" class="flex justify-center items-center" method="POST">
+            <label for="image_url">Image Link: </label>
+            <input type="url" name="image_url" id="image_url" />
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <div data-button="fake-face" class="none">
+        <br>
+        <h1 class="text-red">Fake Face Detection</h1>
+        <br>
+        <form action="" class="flex justify-center items-center" method="POST">
+            <label for="image_url">Image Link: </label>
+            <input type="url" name="image_url" id="image_url" />
+            <button type="submit">Send</button>
+        </form>
+    </div>
+    <div data-button="gender" class="none">
+        <br>
+        <h1 class="text-red">Gender Detection</h1>
+        <br>
+        <form action="" class="flex justify-center items-center" method="POST">
+            <label for="image_url">Image Link: </label>
+            <input type="url" name="image_url" id="image_url" />
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</body>
+</html>
