@@ -1,6 +1,7 @@
 import cv2
 import mediapipe as mp
 import uuid
+import os
 
 
 mp_face_detection = mp.solutions.face_detection
@@ -23,8 +24,10 @@ def borderBox(imageUrl):
         for detection in results.detections:
             mp_drawing.draw_detection(annotated_image, detection)
 
-        img_name = uuid.uuid4()
+        img_name = uuid.uuid4() + '.png'
 
-        cv2.imwrite(f'../public/img/{img_name}.png', annotated_image)
+        img_path = os.path.abspath(__file__ + "/../../../static/img")
+
+        cv2.imwrite(f'{img_path}/{img_name}', annotated_image)
 
         return img_name
