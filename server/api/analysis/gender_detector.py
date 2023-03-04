@@ -1,6 +1,8 @@
 import cv2
-
+import numpy as np
 import os
+import urllib
+
 absolute_path = os.path.abspath(__file__)
 proto_path = os.path.abspath(__file__ + "/../../../config/gender_deploy.prototxt")
 model_path = os.path.abspath(__file__ + "/../../../model/gender_net.caffemodel")
@@ -14,9 +16,16 @@ genderList = ['Male', 'Female']
 
 
 def detectGender(imgURL):
-    face = cv2.imread(imgURL)
-    blob = cv2.dnn.blobFromImage(face, 1, (227, 227), swapRB=False)
+
+    req = urllib.request.urlopen(imgURL)
+
+    arr = np.asarray(bytearray(req.read()), dtype=np.uint8)
+
+    img = cv2.imdecode(arr, -1)
+
+    blob = cv2.dnn.blobFromImage(img, 1, (227, 227), swapRB=False)
     genderNet.setInput(blob)
     genderPreds = genderNet.forward()
     gender = genderList[genderPreds[0].argmax()]
+    genderPreds = [str(g) for g in genderPreds]
     return genderPreds, gender
