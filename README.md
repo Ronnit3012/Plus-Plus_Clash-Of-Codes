@@ -12,6 +12,16 @@ pip install -r ./server/requirements.txt
 
 - /api/v1/analysis
 
+### Request
+
+```json
+{
+    imgURL: "string"
+}
+```
+
+### Response
+
 ```json
 {
     orignalImg: "string",
