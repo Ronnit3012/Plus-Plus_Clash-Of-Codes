@@ -10,4 +10,4 @@ headers = {"Authorization": f"Bearer {os.environ['HF_TOKEN']}"}
 def age_predictor(imgURL):
     response = requests.post(API_URL, headers=headers, data=imgURL)
     preds = response.json()
-    return preds
+    return preds[0]['label']

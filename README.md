@@ -26,11 +26,19 @@ pip install -r ./server/requirements.txt
 {
     orignalImg: "string",
     annotatedImg: "string",
-    isReal: boolean
+    isReal: boolean,
+    isRealPreds: {
+        real: float,
+        fake: float
+    },
     genderPreds: {
         male: float,
         female: float
     },
-    gender: "string"
+    gender: "string",
+    age: int,
+    agePreds: [{}],
+    faceProb: "string",
+    message: "string"
 }
 ```
