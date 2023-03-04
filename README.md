@@ -17,7 +17,10 @@ pip install -r ./server/requirements.txt
     orignalImg: "string",
     annotatedImg: "string",
     isReal: boolean
-    genderPreds: [float],
-    gender: "string",
+    genderPreds: {
+        male: float,
+        female: float
+    },
+    gender: "string"
 }
 ```
