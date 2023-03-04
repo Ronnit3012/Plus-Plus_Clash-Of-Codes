@@ -6,7 +6,7 @@ analysis_bp = Blueprint(
 )
 
 @analysis_bp.route('', methods=["POST"])
-def addUser():
+def analysis():
     try:
         pass
     except Exception as Argument:
