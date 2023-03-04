@@ -7,3 +7,17 @@ python -m venv .venv
 .\.venv\Scripts\activate
 pip install -r ./server/requirements.txt
 ```
+
+## Api endpoint
+
+- /api/v1/analysis
+
+```json
+{
+    orignalImg: "string",
+    annotatedImg: "string",
+    isReal: boolean
+    genderPreds: [float],
+    gender: "string",
+}
+```
