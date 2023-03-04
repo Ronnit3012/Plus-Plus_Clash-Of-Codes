@@ -62,7 +62,7 @@
     "supports-preserve-symlinks-flag": "^1.0.0"
   },
   "scripts": {
-    "build-run": "npx tailwindcss -i ./server/src/input.css -o ./server/public/dist/output.css --watch"
+    "build-run": "npx tailwindcss -i ./server/src/input.css -o ./server/static/dist/output.css --watch"
   },
   "repository": {
     "type": "git",

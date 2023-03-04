@@ -11,6 +11,7 @@ analysis_bp = Blueprint(
     'analysis_bp', __name__,
 )
 
+
 @analysis_bp.route('', methods=["POST"])
 def analysis():
     try:
@@ -18,33 +19,33 @@ def analysis():
         imgURL = request.json["imgURL"]
 
         res_body = {
-        'orignalImg': imgURL,
-        'annotatedImg': "Invalid",
-        'isReal': "Invalid",
-        'isRealPreds': {
-            'real': "Invalid",
-            'fake': "Invalid"
-        },
-        'genderPreds': {
-            'male': "Invalid",
-            'female': "Invalid"
-        },
-        'gender': "Invalid",
-        'age': "Invalid",
-        'agePreds': "Invalid",
-        'faceProb': "Invalid",
-        'message': 'failed'
+            'orignalImg': imgURL,
+            'annotatedImg': "Invalid",
+            'isReal': "Invalid",
+            'isRealPreds': {
+                'real': "Invalid",
+                'fake': "Invalid"
+            },
+            'genderPreds': {
+                'male': "Invalid",
+                'female': "Invalid"
+            },
+            'gender': "Invalid",
+            'age': "Invalid",
+            'agePreds': "Invalid",
+            'faceProb': "Invalid",
+            'message': 'failed'
         }
-
 
         # img probability
 
         annotated_img_path, probability_of_face = face_detect(imgURL)
 
         res_body['faceProb'] = probability_of_face
-        
+
         if probability_of_face == 0:
-            return res_body
+            res_body['message'] = 'probability_of_face == 0'
+            return json.dumps(res_body)
 
         res_body['annotatedImg'] = annotated_img_path
 
@@ -56,7 +57,8 @@ def analysis():
         res_body['isRealPreds']['real'] = imgAuthPreds[1]
 
         if imgAuth == 'fake_image':
-            return res_body
+            res_body['message'] = "imgAuth == 'fake_image'"
+            return json.dumps(res_body)
 
         # gender
         genderPreds, gender = detectGender(imgURL)
@@ -75,4 +77,5 @@ def analysis():
         return json.dumps(res_body)
 
     except Exception as Argument:
+        print(Argument)
         return json.dumps(res_body)

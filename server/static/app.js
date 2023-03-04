@@ -76,3 +76,40 @@ getStartedMid.addEventListener('click', (e) => {
   var element = document.getElementById("main");
   element.scrollIntoView();
 })
+
+const originalImage = document.getElementById('originalImg');
+const annotatedImage = document.getElementById('annotatedImg');
+const sampleOg = document.getElementById('sampleOg');
+const sampleAn = document.getElementById('sampleAn');
+const genderSpan = document.getElementById('gender');
+const ageSpan = document.getElementById('age');
+
+document.getElementById('image-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const baseUrl = window.location.origin;
+  const formData = new FormData(e.target);
+  const formProps = Object.fromEntries(formData);
+
+  try {
+    const res = await axios.post(`${baseUrl}/api/v1/analysis`, formProps);
+    console.log(res.data);
+    // const { originalImg, annotatedImg, isReal, gender, genderPreds } = res.data;
+
+    // if(res.status === 200) {
+    //   if(isReal) {
+    //     sampleOg.style.display = 'none';
+    //     sampleAn.style.display = 'none';
+    //     originalImage.src = originalImg;
+    //     annotatedImage.src = annotatedImg;
+    //     originalImage.style.display = 'block';
+    //     annotatedImage.style.display = 'block';
+    //     genderSpan.innerHTML = gender;
+    //   }
+    // }
+
+
+
+  } catch (error) {
+    console.log(error.message);
+  }
+});

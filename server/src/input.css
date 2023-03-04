@@ -55,3 +55,15 @@
 html {
     scroll-behavior: smooth;
 }
+
+#annotatedImg {
+    display: none;
+}
+
+#originalImg {
+    display: none;
+}
+
+#landing {
+    height: calc(100vh - 60px);
+}
