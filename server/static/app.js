@@ -83,13 +83,20 @@ const sampleOg = document.getElementById('sampleOg');
 const sampleAn = document.getElementById('sampleAn');
 const genderSpan = document.getElementById('gender');
 const ageSpan = document.getElementById('age');
-const modal = document.getElementById('exampleModal');
 
 document.getElementById('image-form').addEventListener('submit', async (e) => {
   e.preventDefault();
+  genderSpan.innerHTML = "";
+  ageSpan.innerHTML = "";
+  originalImage.style.display = 'block';
+  annotatedImage.style.display = 'none';
+  sampleOg.style.display = 'none';
+  sampleAn.style.display = 'block';
   const baseUrl = window.location.origin;
   const formData = new FormData(e.target);
   const formProps = Object.fromEntries(formData);
+  
+  originalImage.src = formProps.imgURL;
 
   try {
     const res = await axios.post(`${baseUrl}/api/v1/analysis`, formProps);
