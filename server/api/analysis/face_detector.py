@@ -17,6 +17,8 @@ def face_detect(imageUrl):
         arr = np.asarray(bytearray(req.read()), dtype=np.uint8)
 
         image = cv2.imdecode(arr, -1)
+
+        # image = cv2.imread(imageUrl)
     
         # Convert the BGR image to RGB and process it with MediaPipe Face Detection.
         results = face_detection.process(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
@@ -39,3 +41,6 @@ def face_detect(imageUrl):
         cv2.imwrite(f'{img_path}/{img_name}', annotated_image)
 
         return img_name, str(face_prob)
+
+# print(face_detect('../../../devang_pfp.jpg'))
+# print(face_detect('https://www.faceapp.com/static/img/content/compare/old-example-before@3x.jpg'))
