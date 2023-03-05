@@ -39,5 +39,3 @@ def face_detect(imageUrl):
         cv2.imwrite(f'{img_path}/{img_name}', annotated_image)
 
         return img_name, str(face_prob)
-
-print(face_detect('https://t4.ftcdn.net/jpg/00/76/27/53/360_F_76275384_mRNrmAI89UPWoWeUJfCL9CptRxg3cEoF.jpg'))

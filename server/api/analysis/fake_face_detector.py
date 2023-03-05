@@ -5,7 +5,7 @@ import tensorflow as tf
 import os
 import urllib
 
-model_path = os.path.abspath(__file__ + "/../../../model/MesoFace.h5")
+model_path = os.path.abspath(__file__ + "/../../../model/MesoFace_newdata.h5")
 
 loaded_model = tf.keras.models.load_model(model_path)
 
