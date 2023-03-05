@@ -93,19 +93,21 @@ document.getElementById('image-form').addEventListener('submit', async (e) => {
   try {
     const res = await axios.post(`${baseUrl}/api/v1/analysis`, formProps);
     console.log(res.data);
-    // const { originalImg, annotatedImg, isReal, gender, genderPreds } = res.data;
+    const { originalImg, annotatedImg, isReal, isRealPreds, gender, genderPreds, age, agePreds, faceProb, message } = res.data;
+    console.log(originalImg)
 
-    // if(res.status === 200) {
-    //   if(isReal) {
-    //     sampleOg.style.display = 'none';
-    //     sampleAn.style.display = 'none';
-    //     originalImage.src = originalImg;
-    //     annotatedImage.src = annotatedImg;
-    //     originalImage.style.display = 'block';
-    //     annotatedImage.style.display = 'block';
-    //     genderSpan.innerHTML = gender;
-    //   }
-    // }
+    if(res.status === 200) {
+      if(isReal) {
+        sampleOg.style.display = 'none';
+        sampleAn.style.display = 'none';
+        originalImage.src = originalImg;
+        annotatedImage.src = './static/annotated_img/' + annotatedImg;
+        originalImage.style.display = 'block';
+        annotatedImage.style.display = 'block';
+        genderSpan.innerHTML = gender;
+        ageSpan.innerHTML = age;
+      }
+    }
 
 
 

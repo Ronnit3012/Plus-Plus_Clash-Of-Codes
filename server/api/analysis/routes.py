@@ -19,7 +19,7 @@ def analysis():
         imgURL = request.json["imgURL"]
 
         res_body = {
-            'orignalImg': imgURL,
+            'originalImg': imgURL,
             'annotatedImg': "Invalid",
             'isReal': "Invalid",
             'isRealPreds': {
