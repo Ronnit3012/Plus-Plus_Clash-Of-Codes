@@ -34,7 +34,7 @@ def face_detect(imageUrl):
 
         img_name = str(uuid.uuid4()) + '.png'
 
-        img_path = os.path.abspath(__file__ + "/../../../static/img")
+        img_path = os.path.abspath(__file__ + "/../../../static/annotated_img")
 
         cv2.imwrite(f'{img_path}/{img_name}', annotated_image)
 

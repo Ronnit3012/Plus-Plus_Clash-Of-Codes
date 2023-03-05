@@ -72,7 +72,7 @@ def analysis():
 
         res_body['age'] = age
 
-        res_body['message'] = "sucess"
+        res_body['message'] = "success"
 
         return json.dumps(res_body)
 
