@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 import json
-
+import multiprocessing
 from .age_detector import age_predictor
 from .face_detector import face_detect
 from .gender_detector import detectGender
@@ -44,7 +44,7 @@ def analysis():
         res_body['faceProb'] = probability_of_face
 
         if probability_of_face == 0:
-            res_body['message'] = 'probability_of_face == 0'
+            res_body['message'] = 'Could not detect face'
             return json.dumps(res_body)
 
         res_body['annotatedImg'] = annotated_img_path
@@ -57,7 +57,7 @@ def analysis():
         res_body['isRealPreds']['real'] = imgAuthPreds[1]
 
         if imgAuth == 'fake_image':
-            res_body['message'] = "imgAuth == 'fake_image'"
+            res_body['message'] = "Fake Image"
             return json.dumps(res_body)
 
         # gender

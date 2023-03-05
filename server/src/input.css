@@ -64,6 +64,10 @@ html {
     display: none;
 }
 
+#exampleModal {
+    display: none;
+}
+
 #landing {
     height: calc(100vh - 60px);
 }

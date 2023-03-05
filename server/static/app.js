@@ -83,6 +83,7 @@ const sampleOg = document.getElementById('sampleOg');
 const sampleAn = document.getElementById('sampleAn');
 const genderSpan = document.getElementById('gender');
 const ageSpan = document.getElementById('age');
+const modal = document.getElementById('exampleModal');
 
 document.getElementById('image-form').addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -94,9 +95,8 @@ document.getElementById('image-form').addEventListener('submit', async (e) => {
     const res = await axios.post(`${baseUrl}/api/v1/analysis`, formProps);
     console.log(res.data);
     const { originalImg, annotatedImg, isReal, isRealPreds, gender, genderPreds, age, agePreds, faceProb, message } = res.data;
-    console.log(originalImg)
 
-    if(res.status === 200) {
+    if(message === 'success') {
       if(isReal) {
         sampleOg.style.display = 'none';
         sampleAn.style.display = 'none';
@@ -107,10 +107,12 @@ document.getElementById('image-form').addEventListener('submit', async (e) => {
         genderSpan.innerHTML = gender;
         ageSpan.innerHTML = age;
       }
+      return;
+    } else if(message === 'failed') {
+      alert('Invalid URL')
+    } else {
+      alert(message)
     }
-
-
-
   } catch (error) {
     console.log(error.message);
   }
