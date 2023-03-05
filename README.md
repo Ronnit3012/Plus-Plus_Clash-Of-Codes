@@ -16,7 +16,7 @@ pip install -r ./server/requirements.txt
 
 ```json
 {
-    imgURL: "string"
+  "imgURL": "string"
 }
 ```
 
@@ -24,7 +24,7 @@ pip install -r ./server/requirements.txt
 
 ```json
 {
-    orignalImg: "string",
+    originalImg: "string",
     annotatedImg: "string",
     isReal: boolean,
     isRealPreds: {
